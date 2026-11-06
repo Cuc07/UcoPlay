@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b7yoedqnw3grb"]
+
+[ext_resource type="Script" uid="uid://ndl6uxtjt2y6" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://drab5wp8hado3" path="res://graphics/player/Pinguinillo.png" id="2_onrkg"]
+
+[node name="Player" type="CharacterBody2D" unique_id=579972458]
+collision_mask = 6
+script = ExtResource("1_onrkg")
+
+[node name="Skin" type="Sprite2D" parent="." unique_id=1207452173]
+position = Vector2(0, 1)
+scale = Vector2(4, 4)
+texture = ExtResource("2_onrkg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1329578048]
+position = Vector2(2.3841858e-07, -10)
+scale = Vector2(12.953124, 12.953122)
+polygon = PackedVector2Array(1.6212304, -3.4740658, 2.5476477, -2.7020512, 3.088058, -1.2352235, 3.088058, 1.003619, 2.779252, 4.7092896, 2.084439, 5.326901, 0.15440288, 5.2496996, -2.933655, 5.4041023, -3.0108564, 3.3968644, -3.937274, 3.2424614, -4.0144753, 2.3160439, -3.088058, 1.5440292, -3.0108564, -2.0844395, -1.7756333, -3.4740658)
+
+[node name="BulletStartPos" type="Marker2D" parent="." unique_id=112936402]
+position = Vector2(0, -113)
+
+[node name="CooldownTimer" type="Timer" parent="." unique_id=170050519]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

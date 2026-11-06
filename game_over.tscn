@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://b14utw4oac6ju"]
+
+[ext_resource type="FontFile" uid="uid://ceyh4n0mm5s74" path="res://fonts/RobotikaPixelGreek-nAWJR.otf" id="1_y26ei"]
+[ext_resource type="Script" uid="uid://le3843mv3dn4" path="res://game_over.gd" id="1_yxx3c"]
+
+[node name="GameOver" type="Control" unique_id=1670596096]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yxx3c")
+
+[node name="BG" type="ColorRect" parent="." unique_id=921783430]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.38948888, 0.4229242, 0.19577011, 1)
+metadata/_edit_lock_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1035787490]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=766909407]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=474569538]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 128
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1103114505]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 100
+text = "Score: "
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=743680591]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_top = -40.0
+offset_right = 116.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1602087889]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 50
+text = "PRESS SPACE TO START AGAIN"

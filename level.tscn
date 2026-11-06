@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://4avs6rpckp10"]
+
+[ext_resource type="Script" uid="uid://dni707k612f7o" path="res://level.gd" id="1_f2txt"]
+[ext_resource type="PackedScene" uid="uid://b7yoedqnw3grb" path="res://player.tscn" id="1_u52ul"]
+[ext_resource type="Texture2D" uid="uid://jqkqvxj24sxj" path="res://graphics/bg.jpg" id="2_oi3di"]
+[ext_resource type="PackedScene" uid="uid://o7tb5g7f5ycm" path="res://ui.tscn" id="4_0b4ue"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wa8ta"]
+size = Vector2(42, 1080)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhua1"]
+size = Vector2(1920, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fhua1"]
+
+[node name="Level" type="Node2D" unique_id=527263516]
+script = ExtResource("1_f2txt")
+
+[node name="BackGround" type="Sprite2D" parent="." unique_id=38872767]
+position = Vector2(944.87537, 517.50024)
+scale = Vector2(0.70871824, 0.75195336)
+texture = ExtResource("2_oi3di")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." unique_id=1639541682 instance=ExtResource("1_u52ul")]
+position = Vector2(972, 904)
+scale = Vector2(0.5, 0.5)
+
+[node name="Borders" type="Node2D" parent="." unique_id=1309247688]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders" unique_id=410542318]
+collision_layer = 4
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D_right" type="CollisionShape2D" parent="Borders/StaticBody2D" unique_id=1693880065]
+position = Vector2(1948, 540)
+shape = SubResource("RectangleShape2D_wa8ta")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D_left" type="CollisionShape2D" parent="Borders/StaticBody2D" unique_id=775189125]
+position = Vector2(-21, 540)
+shape = SubResource("RectangleShape2D_wa8ta")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D_up" type="CollisionShape2D" parent="Borders/StaticBody2D" unique_id=799376318]
+position = Vector2(961, -10)
+shape = SubResource("RectangleShape2D_fhua1")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D_down" type="CollisionShape2D" parent="Borders/StaticBody2D" unique_id=1393795884]
+position = Vector2(960, 1093)
+shape = SubResource("RectangleShape2D_fhua1")
+metadata/_edit_lock_ = true
+
+[node name="Enemy_timer" type="Timer" parent="." unique_id=1472504237]
+wait_time = 0.2
+autostart = true
+
+[node name="Enemies" type="Node2D" parent="." unique_id=402811429]
+
+[node name="Bullets" type="Node2D" parent="." unique_id=1288495787]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=993397624]
+sprite_frames = SubResource("SpriteFrames_fhua1")
+
+[node name="UI" parent="." unique_id=1136231187 instance=ExtResource("4_0b4ue")]
+
+[connection signal="pum" from="Player" to="." method="_on_player_pum"]
+[connection signal="timeout" from="Enemy_timer" to="." method="_on_enemy_timer_timeout"]
